@@ -8,6 +8,11 @@
     
     <table class="table table-condensed">
         <thead>
+            <div class="alert">
+                @if (session('status'))
+        <p class="alert alert-success">{{session('status')}}</p>
+            @endif
+            </div>
                 <tr>
                     <th scope="col">All Upload Posts</th>
                     <th scope="col">Edit</th>

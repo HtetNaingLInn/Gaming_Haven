@@ -92,7 +92,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, $id)
     {
         $post=Post::whereId($id)->firstOrFail();
 
@@ -108,7 +108,7 @@ class PostController extends Controller
         $post->cat_id= $request->get('cat_id');
 
         $post->update();
-        return \redirect('admin/dashboard')->with('status','Successfuly updated Post');
+        return \redirect('admin/post')->with('status','Successfuly updated Post');
     }
 
     /**
@@ -121,6 +121,6 @@ class PostController extends Controller
     {
        Post::destroy($id);
 
-        return \redirect('admin/dashboard')->with('status','Deleted Successful');
+        return \redirect('admin/post')->with('status','Deleted Successful');
     }
 }
