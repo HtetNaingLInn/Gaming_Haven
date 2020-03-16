@@ -41,7 +41,7 @@
         <div class="item col-lg-3 col-md-6 mt-5">
             <div class="thumbnail card  border-success">
                 <div class="card header">
-              <a href=""> <img class="img img-thumbnail bg-dark" src="{{asset('/upload/'.$post->img)}}" alt="" />
+                <a href="{{action('PageController@show',$post->id)}}"> <img class="img img-thumbnail bg-dark" src="{{asset('/upload/'.$post->img)}}" alt="" />
               </a> 
             </div>
                 
@@ -60,7 +60,7 @@
         </div>
     </div>  
     @endforeach
-    <div class="col-12 pagination justify-content-center mt-3">
+    <div class="col-md-12 pagination justify-content-center mt-3">
         {{ $posts->links() }}
     </div>
 
@@ -74,8 +74,8 @@
     <hr class="site-footer__hr">
     <div class="page-width">
         <div class="grid grid--no-gutters small--text-center">
-          <div class="grid__item one-half small--one-whole"><div class="small--hide">
-                <small class="site-footer__copyright-content">&copy; 2020,Gaming Haven Store</small>
+          <div class="grid__item one-half small--one-whole"><div class="small--hide text-center">
+                <small class="site-footer__copyright-content">&copy; 2020 Gaming Haven Store Powered by HNL</small>
                 
               </div></div>
         </div>

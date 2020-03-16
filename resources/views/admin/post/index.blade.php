@@ -36,7 +36,7 @@
                 
 									<div class="col-md-8">
                                     <h4 class="nomargin">{{$post->title}}</h4>
-                                    <p>{{$post->description}}</p>
+                                    <p>{{Str::limit($post->description,200)}}</p>// to show the string (limit)
 									</div>
                     </div>
                 </td>
@@ -54,9 +54,15 @@
                 </td>
             </tr>
             @endforeach
+            <div class="col-md-12">
+                {{ $posts->links() }}
+            </div>
         </tbody>
+        
     </table>
+    
 </div>
+
 
     
 @endsection

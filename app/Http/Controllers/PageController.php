@@ -50,7 +50,8 @@ class PageController extends Controller
      */
     public function show($id)
     {
-        //
+        $post=Post::whereId($id)->firstOrFail();
+        return view('viewdetail',\compact('post'));
     }
 
     /**

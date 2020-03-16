@@ -30,7 +30,7 @@
         <div class="item col-lg-3 col-md-6 mt-5">
             <div class="thumbnail card  border-success">
                 <div class="card header">
-              <a href=""> <img class="img img-thumbnail bg-dark" src="{{asset('/upload/'.$post->img)}}" alt="" />
+                <a href="{{action('PageController@show',$post->id)}}"> <img class="img img-thumbnail bg-dark" src="{{asset('/upload/'.$post->img)}}" alt="" />
               </a> 
             </div>
                 

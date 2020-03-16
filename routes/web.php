@@ -17,6 +17,8 @@ Route::get('/','PageController@index');
 Route::get('test/{id}/post','testController@index');
 Route::get('category/{id}/post','PageController@cat');
 
+Route::get('detail/{id}/post','PageController@show');
+
 
 
 Route::get('register','Auth\RegisterController@show');
