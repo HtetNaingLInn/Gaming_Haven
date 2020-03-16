@@ -13,7 +13,7 @@ class testController extends Controller
        echo  $cats->name;
        echo "<hr>";
 
-       foreach($cats->post as $post)
+       foreach($cats->posts as $post)
        echo $post .'<br>';
 
     }

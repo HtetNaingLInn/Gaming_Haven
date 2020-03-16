@@ -5,17 +5,33 @@
 <div class="container fluid">
 <hr color="success">
 
-<div class="form-group form-check-inline">
-    <label for="exampleFormControlSelect1" class="text-info">Search By Category</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-        <option value="">All Post</option>
-        @foreach ($cats as $cat)
-            
-    
-    <option value="{{$cat->id}}">{{$cat->name}}</option>
-      @endforeach
-    </select>
-  </div>
+
+<div class="col-md-12">
+    <div class="btn-group dropright">
+        <button type="button" class="btn btn-outline-dark text-success dropdown-toggle" data-toggle="dropdown"  >
+          Search By Category
+        </button>
+        <div class="dropdown-menu">
+        <a href="{{url('/')}}">
+            <button class="btn btn-light">All Post</button>
+            </a>
+         @foreach ($cats as $cat)
+        <a href="{{action('PageController@cat',$cat->id)}}">
+        <button class="btn btn-light">{{$cat->name}}</button></a>
+         @endforeach
+        </div>
+      </div>
+</div>
+
+
+
+
+
+
+
+
+
+
 
 <hr color="success">
 
@@ -62,4 +78,5 @@
                 <small class="site-footer__copyright-content">&copy; 2020,Gaming Haven Store</small>
                 
               </div></div>
+        </div>
 @endsection

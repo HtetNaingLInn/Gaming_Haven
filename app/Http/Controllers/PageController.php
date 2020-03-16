@@ -86,7 +86,10 @@ class PageController extends Controller
     {
         //
     }
-    public function cat(){
-        
+    public function cat($id){
+        $cats=Category::all();
+        $cat =Category::find($id);
+        $posts = $cat->posts;
+        return view('category',\compact('posts','cats'));
     }
 }
