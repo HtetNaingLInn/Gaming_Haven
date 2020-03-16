@@ -12,8 +12,9 @@
 */
 
 Route::get('/','PageController@index');
+//  Route::get('/{id}/post','PageController@cat');
 
-
+Route::get('test/{id}/post','testController@index');
 
 
 

@@ -13,11 +13,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                  <button class="btn btn-outline-success"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Category</button>
-              </a>
-            </li>
+            
+
+
+
+
+
+
+
             <li class="nav nav-item">
             <a class="nav-link" href="{{url('admin/dashboard')}}">
                 <button class="btn btn-outline-success">Admin</button>

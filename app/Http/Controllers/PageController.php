@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Category;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -14,8 +15,10 @@ class PageController extends Controller
      */
     public function index()
     {
-        $posts=Post::all();
-        return view('home',\compact('posts'));
+    
+                $cats=Category::all();
+                $posts=Post::paginate(12);
+                return view('home',\compact('posts','cats'));
     }
 
     /**
@@ -82,5 +85,8 @@ class PageController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function cat(){
+        
     }
 }
