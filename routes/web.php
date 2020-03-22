@@ -21,6 +21,9 @@ Route::get('detail/{id}/post','PageController@show');
 
 
 
+
+
+
 Route::get('register','Auth\RegisterController@show');
 Route::post('register','Auth\Registercontroller@register');
 

@@ -5,7 +5,13 @@
 @section('content')
 
 <div class="container fluid">
-    
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-12">
+    <a href="post">        <button class="btn btn-dark"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>&nbsp;Back</button></a>
+            </div>
+        </div>
+    </div>
     <table class="table table-condensed">
         <thead>
             <div class="alert">
@@ -13,6 +19,23 @@
         <p class="alert alert-success">{{session('status')}}</p>
             @endif
             </div>
+            <tr>
+                <div class="container my-2">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form>
+                                <div class="input-group mb-3">
+                                    <input type="text" name="search" class="form-control" placeholder="Search By post title">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-dark text-success" type="submit" id="button-addon2">
+                                            <i class="fa fa-search" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div> 
+            </tr>
                 <tr>
                     <th scope="col">All Upload Posts</th>
                     <th scope="col">Edit</th>
@@ -20,7 +43,7 @@
                 </tr>
         </thead>
         <tbody>
-            @foreach ($posts as $post)
+            @forelse ($posts as $post)
                 
             
             <tr>
@@ -36,7 +59,8 @@
                 
 									<div class="col-md-8">
                                     <h4 class="nomargin">{{$post->title}}</h4>
-                                    <p>{{Str::limit($post->description,200)}}</p>// to show the string (limit)
+                                    <p>{{Str::limit($post->description,200)}}</p>
+                                     {{-- to show the string (limit) --}}
 									</div>
                     </div>
                 </td>
@@ -53,7 +77,11 @@
                 </div>
                 </td>
             </tr>
-            @endforeach
+            @empty
+            <div class="container">
+                <h3 class="text-danger text-center">There is no post </h3>
+            </div>
+            @endforelse
             <div class="col-md-12">
                 {{ $posts->links() }}
             </div>

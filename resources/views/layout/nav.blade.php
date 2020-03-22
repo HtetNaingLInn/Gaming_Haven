@@ -13,29 +13,35 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             
-            
-
-
-
-
-
-
-
             <li class="nav nav-item">
-            <a class="nav-link" href="{{url('admin/dashboard')}}">
-                <button class="btn btn-outline-success">Admin</button>
-              </a>
+              <a class="nav-link" href="{{url('/')}}">
+                  <button class="btn btn-outline-success">Home</button>
+                </a>
+  
+              </li>
 
-            </li>
+
+
+
+
+
+
+            @auth
+            <li class="nav nav-item">
+              <a class="nav-link" href="{{url('admin/dashboard')}}">
+                  <button class="btn btn-outline-success">Admin</button>
+                </a>
+  
+              </li>
+                
+            @endauth
             
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-              <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
-          </form>
+          
           <ul class="navbar-nav">
+            <li class="nav-item">
+             <a href="" class="nav-link"><button class="btn btn-outline-success"><i class="fa fa-cart-plus" aria-hidden="true"></i></button></a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <button class="btn btn-outline-success">

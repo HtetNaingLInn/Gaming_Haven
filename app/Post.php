@@ -12,6 +12,7 @@ class Post extends Model
         'description',
         'img',
         'cat_id',
+        'link',
         'slug'
     ];
 

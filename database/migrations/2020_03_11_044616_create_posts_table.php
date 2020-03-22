@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->text('description');
             $table->string('img');
             $table->tinyInteger('cat_id');
+            $table->text('link');
             $table->string('slug');
             $table->timestamps();
         });

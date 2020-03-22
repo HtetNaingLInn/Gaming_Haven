@@ -22,9 +22,22 @@
         </div>
       </div>
 </div>
-
-
-
+<hr>
+<div class="container my-2">
+    <div class="row">
+        <div class="col-md-12">
+            <form>
+                <div class="input-group mb-3">
+                    <input type="text" name="search" class="form-control" placeholder="Search By post title">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-dark text-success" type="button" id="button-addon2">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
 
 
@@ -37,10 +50,11 @@
 
 
     <div class="row mt-3">
-        @foreach ($posts as $post)
+        @forelse ($posts as $post)
         <div class="item col-lg-3 col-md-6 mt-5">
             <div class="thumbnail card  border-success">
                 <div class="card header">
+                    <h4 class="text-success">{{ $post->title }}</h4>
                 <a href="{{action('PageController@show',$post->id)}}"> <img class="img img-thumbnail bg-dark" src="{{asset('/upload/'.$post->img)}}" alt="" />
               </a> 
             </div>
@@ -49,17 +63,25 @@
                     <div class="row">
                     <div class="col-md-6 sm-6">
                     <h5 class="text-success">
-                    {{$post->price}}$</h5>
+                    {{$post->price}}</h5>
                 </div>
                 <div class="col-md-6 sm-6">
+                <a href="#">                    
                     <button class="btn btn-outline-dark text-success float-right">
-                        <i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                    <i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>  
-    @endforeach
+    
+        
+    @empty
+    <div class="container">
+        <h3 class="text-danger text-center">There is no post </h3>
+    </div>
+    @endforelse
     <div class="col-md-12 pagination justify-content-center mt-3">
         {{ $posts->links() }}
     </div>

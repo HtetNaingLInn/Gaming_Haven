@@ -17,7 +17,21 @@ class PageController extends Controller
     {
     
                 $cats=Category::all();
-                $posts=Post::paginate(12);
+
+            if(request('search')){
+                $posts=Post::where('title','like','%'.request('search').'%')
+                ->orderby('id','desc')->paginate(12);
+            }else{
+
+                $posts=Post::orderby('id','desc')->paginate(12);
+
+            }
+
+
+
+
+
+               
                 return view('home',\compact('posts','cats'));
     }
 
@@ -93,4 +107,8 @@ class PageController extends Controller
         $posts = $cat->posts;
         return view('category',\compact('posts','cats'));
     }
+
+    
+
+     
 }

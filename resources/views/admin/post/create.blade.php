@@ -37,6 +37,10 @@
                             <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
                           </div>
                           <div class="form-group">
+                            <label for="link">Youtube Link</label>
+                            <input type="text" class="form-control-file" id="exampleFormControlFile1" name="link">
+                          </div>
+                          <div class="form-group">
                             <label for="exampleFormControlSelect1">Select Category</label>
                             <select class="form-control" id="exampleFormControlSelect1" name="cat_id">
                               @foreach ($cats as $cat)

@@ -17,7 +17,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts=Post::paginate(6);
+        if(\request('search')){
+            $posts=Post::where('title','like','%'.\request('search').'%')->orderby('id','desc')->paginate(6);
+        }else{
+            $posts=Post::orderby('id','desc')->paginate(6);
+        }
+       
         
         return view('admin.post.index',compact('posts'));
     }
@@ -48,12 +53,15 @@ class PostController extends Controller
 
         $file->move(public_path().'/upload/',$filename);
 
+        $link="https://www.youtube.com/embed/";
+
         Post::create([
             'title'=>$request->get('title'),
             'price'=>$request->get('price'),
             'description'=>$request->get('description'),
             'img'=>$filename,
             'cat_id'=>$request->get('cat_id'),
+            'link'=>$request->get('link'),
             'slug'=>$request->get('_token')
         ]);
 
